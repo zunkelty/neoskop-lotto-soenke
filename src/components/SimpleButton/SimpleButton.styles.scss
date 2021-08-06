@@ -23,8 +23,22 @@
   cursor: pointer;
 
   //Klick-Animation (nur wenn Button nicht disabled ist)
-  &:active:not(.simple-button--disabled) {
-    transform: scale(0.98);
+
+  svg {
+    transition: transform 200ms;
+  }
+
+  &:not(.simple-button--disabled) {
+    &:active {
+      transform: scale(0.98);
+    }
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+      svg {
+        transform: translateX(25%);
+      }
+    }
   }
 
   &.simple-button--disabled {
