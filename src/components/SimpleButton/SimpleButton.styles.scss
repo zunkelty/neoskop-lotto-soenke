@@ -28,6 +28,7 @@
 
   padding: 10px 15px;
 
+  transition: 200ms;
   &.simple-button--disabled {
     cursor: not-allowed;
     color: #ccc;
