@@ -1,11 +1,9 @@
 .zahlenfeld {
-  border-radius: 10px;
+  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
-  position: relative;
 
   font: 500 1.25rem sans-serif;
 
@@ -13,7 +11,9 @@
 
   background: #fff;
   color: #4d6568;
+
   border: 0;
+  border-radius: 10px;
   outline: none;
 
   cursor: pointer;
@@ -22,7 +22,7 @@
     cursor: not-allowed;
   }
 
-  // A cross that is scaled down to 0 by default
+  //Ein Kreuz, das zuerst versteckt ist
   &::before {
     position: absolute;
     top: 0;
@@ -36,13 +36,11 @@
     transition: transform 200ms;
   }
 
-  box-sizing: border-box;
-
   //Microanimations
   transition-duration: 200ms;
   transition-property: color font font-size;
 
-  // If selected, hide the number and show the cross
+  // Falls ausgewählt, verstecke die Nummer und zeige das Kreuzchen
   &.zahlenfeld--selected {
     font-size: 0;
 
@@ -52,7 +50,7 @@
     }
   }
 
-  //If disabled, grays out the number
+  //Falls deaktiviert, graue Text aus
   &.zahlenfeld--disabled {
     color: #ccc;
     cursor: not-allowed;

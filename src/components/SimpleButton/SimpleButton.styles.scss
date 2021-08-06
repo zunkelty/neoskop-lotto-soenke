@@ -1,8 +1,11 @@
 .simple-button {
   min-height: 65px;
   min-width: 65px;
+  padding: 10px 20px;
 
   border-radius: 10px;
+  border: 0;
+  outline: none;
 
   display: flex;
   align-items: center;
@@ -10,23 +13,20 @@
 
   font: 500 1.1rem sans-serif;
 
+  transition: 200ms;
   will-change: contents;
 
   background: #fff;
   color: #4d6568;
-  fill: #4d6568;
-  border: 0;
-  outline: none;
+  fill: #4d6568; //Farbe für das Icon
 
   cursor: pointer;
 
+  //Klick-Animation (nur wenn Button nicht disabled ist)
   &:active:not(.simple-button--disabled) {
     transform: scale(0.98);
   }
 
-  padding: 10px 20px;
-
-  transition: 200ms;
   &.simple-button--disabled {
     cursor: not-allowed;
     color: #ccc;

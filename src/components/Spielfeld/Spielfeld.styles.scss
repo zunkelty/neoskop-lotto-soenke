@@ -1,9 +1,7 @@
 .lottoschein {
-  max-width: 600px;
-
   width: 100%;
+  max-width: 600px;
   height: 100%;
-
   border-radius: 15px;
   padding: 20px;
 
@@ -18,7 +16,17 @@
   //aber ein guter Weg für die Browser-Kompatibilität um sicherzustellen, dass das Spielfeld immer quadratisch bleibt.
   //aspect-ratio ist leider (noch) nicht auf allen Browser unterstützt (bspw. Chrome/Safari auf iPadOS) s. https://caniuse.com/?search=aspect-ratio
   .spielfeld-wrapper {
+    //Ein kleiner Hack um ohne aspect-ratio ein quadratisches Seitenverhältnis zu erzeugen.
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+
     .spielfeld {
+      //Absolute Positionierung "oben links" im Wrapper
+      position: absolute;
+      top: 0;
+      left: 0;
+
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       grid-template-rows: repeat(7, 1fr);
@@ -26,15 +34,7 @@
 
       width: 100%;
       height: 100%;
-
-      position: absolute;
-      top: 0;
-      left: 0;
     }
-
-    height: 0;
-    padding-top: 100%;
-    position: relative;
   }
 
   .simple-button {

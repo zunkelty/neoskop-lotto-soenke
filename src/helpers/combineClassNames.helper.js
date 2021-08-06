@@ -1,7 +1,7 @@
 /**
  * @name combineClassNames
- * @description Takes a list of class names and combines them into a single string to be passed as e.g. the className prop of react components. Classnames can be set conditionally with a boolean value (usage e.g. combineClassNames(isConditionMatched && "conditionMatched") will only set the classname "conditionMatched" if isConditionMatched is true).
- * @returns A string with all class names combined.
+ * @description Nimmt eine Liste von Klassennamen und kombiniert sie zu einem einzigen String, der z.B. als className-Prop an React-Komponenten übergeben werden kann. Klassennamen können mit einem booleschen Wert bedingt gesetzt werden (Verwendung z.B. combineClassNames(isConditionMatched && "conditionMatched") setzt den Klassennamen "conditionMatched" nur, wenn isConditionMatched true ist).
+ * @returns Ein String mit allen Klassennamen kombiert.
  */
 export default function combineClassNames(...classNames) {
   return classNames.filter((c) => c !== false && c !== undefined).join(" ");
