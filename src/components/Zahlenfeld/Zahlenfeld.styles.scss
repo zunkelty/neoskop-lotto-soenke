@@ -1,0 +1,61 @@
+.zahlenfeld {
+  aspect-ratio: 1/1;
+  min-width: 14.2875%;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  font: 500 1.25rem sans-serif;
+
+  will-change: contents;
+
+  background: #fff;
+  color: #4d6568;
+  border: 0;
+  outline: none;
+
+  cursor: pointer;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  // A cross that is scaled down to 0 by default
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    background: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='40px' height='40px' viewBox='0 0 40 40' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cdefs%3E%3C/defs%3E%3Cg id='icon-cross' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpath d='M23.133131,17.8957774 C24.5141626,16.5311131 26.3265748,14.752783 28.5763495,12.5608644 C34.0734809,6.94515026 36.8205128,3.54554704 36.8205128,2.35911767 C36.8205128,-0.42160998 35.1099448,-0.744612477 31.6829036,1.39296998 C28.6932249,3.24975126 24.9335796,6.59811001 20.4102564,11.440906 C19.9758772,11.9058627 19.5415133,12.3829387 19.1071418,12.8720413 C15.7579408,8.85348519 12.9599868,6.04261373 10.7103655,4.44568753 C7.79553612,2.35942684 6.33666431,2.70662167 6.33666431,5.4903637 C6.33666431,5.95532035 8.19102589,8.46733528 11.8966815,13.0263157 C13.1758689,14.6234738 14.3022133,16.0274023 15.2728006,17.2381013 C13.0230259,19.9191998 10.9769396,22.5851491 9.13760923,25.2393501 C5.71049134,30.1606746 4,33.6115996 4,35.5949076 C4,35.6462293 4.12581744,36.3044232 4.38344946,37.5664672 C4.81782867,38.8043729 5.4558809,39.4202341 6.30069675,39.4202341 C8.01126479,37.0259655 9.83863153,34.4626597 11.782797,31.7303168 C15.1319979,27.0414861 17.5615337,23.8079057 19.0683367,22.029421 C19.3738999,22.4430559 19.6045677,22.7510097 19.7573493,22.9593188 C19.7573493,22.9834725 21.7525136,26.2955428 25.7397744,32.8897713 C28.6036817,37.6299238 30.4700069,40 31.33875,40 C32.3363321,40 33.1151947,39.6799655 33.6784053,39.0338523 C34.1127845,38.5205883 34.3284748,37.9530036 34.3284748,37.3340507 C34.3284748,35.6855709 32.8725939,32.5033122 29.9577645,27.7900573 C27.9146691,24.4900832 25.6379763,21.1930463 23.1335912,17.895932 L23.133131,17.8957774 Z' id='Page-1' fill='%23506466'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: transform 200ms;
+  }
+
+  //Microanimations
+  transition-duration: 200ms;
+  transition-property: color font font-size;
+
+  // If selected, hide the number and show the cross
+  &.zahlenfeld--selected {
+    font-size: 0;
+
+    &:before {
+      transform: scale(1);
+      transition: transform 200ms;
+    }
+  }
+
+  //If disabled, grays out the number
+  &.zahlenfeld--disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+}

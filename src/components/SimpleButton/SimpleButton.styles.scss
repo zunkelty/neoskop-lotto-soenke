@@ -1,0 +1,33 @@
+.simple-button {
+  aspect-ratio: 2/1;
+  min-height: 65px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font: 500 1.1rem sans-serif;
+
+  will-change: contents;
+
+  background: #fff;
+  color: #4d6568;
+  fill: #4d6568;
+  border: 0;
+  outline: none;
+
+  cursor: pointer;
+
+  &:active:not(.simple-button--disabled) {
+    transform: scale(0.98);
+  }
+
+  padding: 10px 10px;
+
+  &.simple-button--disabled {
+    cursor: not-allowed;
+    color: #ccc;
+    fill: #ccc;
+  }
+}

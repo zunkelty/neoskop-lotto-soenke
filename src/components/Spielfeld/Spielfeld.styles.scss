@@ -1,0 +1,30 @@
+.lottoschein {
+  aspect-ratio: 1/1;
+
+  max-width: 600px;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 15px;
+  padding: 20px;
+
+  h1 {
+    color: #7c8bb5;
+    font: 500 1.5rem sans-serif;
+
+    margin-bottom: 20px;
+  }
+
+  .spielfeld {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  .simple-button {
+    margin-top: 8px;
+    margin-left: auto;
+  }
+}
