@@ -29,6 +29,15 @@ export default function Spielfeld() {
     });
     //Im realen Projekt würde an dieser Stelle beispielsweise eine API-Anfrage folgen oder die Werte per Callback an den Parent-Component übergeben werden.
     console.log(selected);
+    alert(
+      "Du hast die Zahlen: " +
+        selected.slice(0, selected.length - 1).join(", ") +
+        " und " +
+        selected[selected.length - 1] +
+        " getippt."
+    );
+    setIsSelected(Array(49).fill(false));
+    setCanProceed(false);
   };
 
   return (

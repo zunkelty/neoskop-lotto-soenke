@@ -8,7 +8,7 @@ const SimpleButton = ({ children, onClick, isDisabled }) => {
         "simple-button",
         isDisabled && "simple-button--disabled"
       )}
-      onClick={onClick}
+      onClick={() => !isDisabled && onClick()}
     >
       {children}
       {/* SVG Icon "chevron-right" von https://boxicons.com */}
