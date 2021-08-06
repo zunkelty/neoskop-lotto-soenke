@@ -1,5 +1,5 @@
 .simple-button {
-  aspect-ratio: 2/1;
+  aspect-ratio: 2/1; //Aspect-ratio ist nicht entscheident, deswegen wird hier kein Fallback für nicht-kompatible Browser gebraucht.
 
   min-height: 65px;
   min-width: 65px;

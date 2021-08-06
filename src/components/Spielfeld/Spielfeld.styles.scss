@@ -1,6 +1,4 @@
 .lottoschein {
-  aspect-ratio: 1/1;
-
   max-width: 600px;
 
   width: 100%;
@@ -16,11 +14,27 @@
     margin-bottom: 20px;
   }
 
-  .spielfeld {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    gap: 8px;
+  //Ein zusätzlicher Wrapper um das Spielfeld mit absoluter Positionierung ist zwar unschön,
+  //aber ein guter Weg für die Browser-Kompatibilität um sicherzustellen, dass das Spielfeld immer quadratisch bleibt.
+  //aspect-ratio ist leider (noch) nicht auf allen Browser unterstützt (bspw. Chrome/Safari auf iPadOS) s. https://caniuse.com/?search=aspect-ratio
+  .spielfeld-wrapper {
+    .spielfeld {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      gap: 8px;
+
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    height: 0;
+    padding-top: 100%;
+    position: relative;
   }
 
   .simple-button {

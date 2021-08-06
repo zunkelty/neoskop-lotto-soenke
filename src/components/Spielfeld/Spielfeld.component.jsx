@@ -34,16 +34,18 @@ export default function Spielfeld() {
   return (
     <div className="lottoschein">
       <h1>Ihr Spielfeld</h1>
-      <div className="spielfeld">
-        {isSelected.map((isFieldSelected, i) => (
-          <Zahlenfeld
-            key={i}
-            value={i + 1}
-            isSelected={isFieldSelected}
-            isDisabled={!isFieldSelected && canProceed}
-            onClick={onFieldClick}
-          />
-        ))}
+      <div className="spielfeld-wrapper">
+        <div className="spielfeld">
+          {isSelected.map((isFieldSelected, i) => (
+            <Zahlenfeld
+              key={i}
+              value={i + 1}
+              isSelected={isFieldSelected}
+              isDisabled={!isFieldSelected && canProceed}
+              onClick={onFieldClick}
+            />
+          ))}
+        </div>
       </div>
       <SimpleButton onClick={onProceed} isDisabled={!canProceed}>
         Weiter
