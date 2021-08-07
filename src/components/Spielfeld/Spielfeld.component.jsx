@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import SimpleButton from "../SimpleButton/SimpleButton.component";
 import Zahlenfeld from "../Zahlenfeld/Zahlenfeld.component";
 import "./Spielfeld.styles.scss";
@@ -13,20 +13,21 @@ export default function Spielfeld() {
 
   //Beim Klick auf ein Zahlenfeld, wird der Click-State des entsprechenden Feldes invertiert.
   //Außerdem wird der State 'canProceed', falls 6 Felder gewählt wurden, auf 'true' gesetzt.
-  const onFieldClick = useCallback((i) => {
+  const onFieldClick = (i) => {
     setIsSelected((prev) => {
       const newIsSelected = [...prev];
       newIsSelected[i - 1] = !newIsSelected[i - 1];
       setCanProceed(newIsSelected.filter(Boolean).length === 6);
       return newIsSelected;
     });
-  }, []);
+  };
 
   //Beim Klick auf "Weiter" werden die gewählten Zahlenfelder ermittelt und ausgegeben
   const onProceed = () => {
     let selected = isSelected.flatMap((isFieldSelected, i) => {
       return isFieldSelected ? i + 1 : [];
     });
+
     //Im realen Projekt würde an dieser Stelle beispielsweise eine API-Anfrage folgen oder die Werte per Callback an den Parent-Component übergeben werden.
     console.log(selected);
     alert(
@@ -51,7 +52,7 @@ export default function Spielfeld() {
               value={i + 1}
               isSelected={isFieldSelected}
               isDisabled={!isFieldSelected && canProceed}
-              onClick={onFieldClick}
+              onClick={() => onFieldClick(i + 1)}
             />
           ))}
         </div>

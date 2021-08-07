@@ -3,6 +3,8 @@ import combineClassNames from "../../helpers/combineClassNames.helper";
 import "./Zahlenfeld.styles.scss";
 
 function Zahlenfeld({ isDisabled, isSelected, value, onClick }) {
+  const handleClick = () => !isDisabled && onClick();
+
   return (
     <button
       key={value}
@@ -11,7 +13,7 @@ function Zahlenfeld({ isDisabled, isSelected, value, onClick }) {
         isDisabled && "zahlenfeld--disabled",
         isSelected && "zahlenfeld--selected"
       )}
-      onClick={() => !isDisabled && onClick(value)}
+      onClick={handleClick}
     >
       {value}
     </button>

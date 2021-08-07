@@ -2,13 +2,15 @@ import combineClassNames from "../../helpers/combineClassNames.helper";
 import "./SimpleButton.styles.scss";
 
 const SimpleButton = ({ children, onClick, isDisabled }) => {
+  const handleClick = () => !isDisabled && onClick();
+
   return (
     <button
       className={combineClassNames(
         "simple-button",
         isDisabled && "simple-button--disabled"
       )}
-      onClick={() => !isDisabled && onClick()}
+      onClick={handleClick}
     >
       {children}
       {/* SVG Icon "chevron-right" von https://boxicons.com */}
